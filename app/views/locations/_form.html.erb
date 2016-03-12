@@ -44,17 +44,16 @@
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :start_time %><br>
+    <%= f.label :start_time, "Opens At" %><br>
     <%= f.time_select :start_time %>
   </div>
   <div class="field">
-    <%= f.label :end_time %><br>
+    <%= f.label :end_time, "Closes At" %><br>
     <%= f.time_select :end_time %>
   </div>
-  <div class="field">
-    <%= f.label :company_id %><br>
-    <%= f.text_field :company_id %>
-  </div>
+
+  <%= f.hidden_field :company_id %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

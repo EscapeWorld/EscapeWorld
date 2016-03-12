@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header><h1>EscapeWorld</h1></header>
+  <nav>
+    <ul>
+      <li><%= link_to 'Companies', companies_path %></li>
+      <li><%= link_to 'Locations', locations_path %></li>
+      <li><%= link_to 'Rooms', rooms_path %></li>
+    </ul>
+  </nav>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

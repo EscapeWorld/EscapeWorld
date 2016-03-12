@@ -10,6 +10,8 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @locations = @company.locations.all
+    @location = @company.locations.new
   end
 
   # GET /companies/new

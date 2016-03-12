@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @room.name %> <small>at <%= link_to @room.location.name, location_path(@room.location) %></small></h1>
+<p>
+  <strong>Name:</strong>
+  <%= @room.name %>
+</p>
+
+<p>
+<strong>Directions: </strong>
+  <small>A map would be here</small>
+  <p>
+    <%= @room.location.street %>
+    <%= @room.location.city %>, <%= @room.location.state %>, <%= @room.location.zip %>
+  </p>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @room.description %>
+</p>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>

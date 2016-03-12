@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312162427) do
+ActiveRecord::Schema.define(version: 20160312163222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,20 @@ ActiveRecord::Schema.define(version: 20160312162427) do
     t.string   "url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "room_id"
   end
+
+  add_index "photos", ["room_id"], name: "index_photos_on_room_id", using: :btree
+
+  create_table "rooms", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "rooms", ["location_id"], name: "index_rooms_on_location_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -82,4 +95,6 @@ ActiveRecord::Schema.define(version: 20160312162427) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "locations", "companies"
+  add_foreign_key "photos", "rooms"
+  add_foreign_key "rooms", "locations"
 end

@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @company.name %></h1>
+
 <p>
-  <strong>Name:</strong>
-  <%= @company.name %>
+  <strong>Phone:</strong>
+  <%= @company.phone %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @company.description %>
 </p>
 
 <p>
@@ -15,34 +22,23 @@
   <%= @company.website %>
 </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @company.city %>
-</p>
+<%= @company.street %>
+<%= @company.city %>, <%= @company.state %>, <%= @company.zip %>
+
+<hr />
 
 <p>
-  <strong>State:</strong>
-  <%= @company.state %>
+<strong>Locations:</strong>
+<% @locations.each do |location| %>
+    <li><%= link_to location.name, location %></li>
+  <% end %>
 </p>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @company.zip %>
-</p>
+<hr />
 
 <p>
-  <strong>Street:</strong>
-  <%= @company.street %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @company.phone %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @company.description %>
+  <strong>Add New Location?</strong>
+  <%= render 'locations/form' %>
 </p>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
