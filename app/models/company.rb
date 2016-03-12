@@ -4,4 +4,5 @@ class Company < ActiveRecord::Base
 
   # outgoing
   has_many :locations
+  belongs_to :user
 end

@@ -34,6 +34,10 @@ gem 'bitters'
 
 gem 'rails_admin'
 
+group :development do
+  gem 'rails-erd'
+end
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
