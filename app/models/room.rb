@@ -5,5 +5,4 @@ class Room < ActiveRecord::Base
 
   # outgoing
   has_many :photos
-  has_many :categories
 end
