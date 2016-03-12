@@ -26,9 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'cancancan'
 
-gem 'bourbon'
+gem 'bourbon', '~>4.2.6'
 gem 'neat'
-gem 'bitters'
+gem 'bitters', '~>1.2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

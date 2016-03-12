@@ -7,10 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header><h1>EscapeWorld</h1></header>
   <nav>
     <ul>
-      <li><%= link_to 'Companies', companies_path %></li>
+      <li>
+        <%= link_to companies_path do %>
+          <span class="icon-search">Search</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to companies_path do %>
+          <span class="icon-map">Browse</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to companies_path do %>
+          <span class="icon-clipboard">Itinerary</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to companies_path do %>
+          <span class="icon-books">Learn</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to companies_path do %>
+          <span class="icon-cog">Settings</span>
+        <% end %>
+      </li>
+
       <li><%= link_to 'Locations', locations_path %></li>
       <li><%= link_to 'Rooms', rooms_path %></li>
       <!-- devise login / logout links -->
@@ -25,6 +49,7 @@
   </nav>
 
 <div class="container">
+  <div class="map"></div>
   <%= yield %>
 </div>
 
