@@ -1,0 +1,27 @@
+body {
+  $nav-width: 100px;
+  $map-height: 300px;
+  font-family: $helvetica;
+  margin: 0;
+
+  nav {
+    position: fixed;
+    @include size($nav-width 100%);
+  }
+
+  .map {
+    height: 300px;
+    position: relative;
+    background: #f55;
+  }
+
+  .container {
+    margin-left: $nav-width;
+    height: 1000px;
+    width: auto;
+    position: relative;
+    background: #fff;
+    overflow: auto;
+    z-index: 1;
+  }
+}

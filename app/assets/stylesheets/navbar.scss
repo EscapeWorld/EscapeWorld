@@ -1,0 +1,14 @@
+nav {
+  background: #000;
+
+  span::before {
+    font-size: 3em;
+    display: block;
+  }
+  span {
+    display: block;
+    padding: 10px;
+  }
+
+  text-align: center;
+}
