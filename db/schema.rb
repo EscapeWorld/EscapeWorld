@@ -69,13 +69,6 @@ ActiveRecord::Schema.define(version: 20160312193354) do
 
   add_index "photos", ["room_id"], name: "index_photos_on_room_id", using: :btree
 
-  create_table "roles", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
