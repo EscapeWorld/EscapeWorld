@@ -1,0 +1,25 @@
+body {
+  @include outer-container;
+  @include fill-parent();
+  @include row(table);
+  font-family: $helvetica;
+
+  header {
+    @include span_columns(11 of 12);
+    @include shift(1);
+    @include position(fixed, 0 0);
+    // @include size(10em auto);
+    background-color: blue;
+  }
+  nav {
+    @include span_columns(1 of 12);
+    @include position(fixed, 0 0);
+  }
+
+  .container {
+    @include span_columns(10 of 12);
+    @include reset-display;
+    @include pad();
+    background-color: red;
+  }
+}
