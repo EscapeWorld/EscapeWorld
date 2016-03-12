@@ -1,25 +1,27 @@
 body {
-  @include outer-container;
-  @include fill-parent();
-  @include row(table);
+  $nav-width: 100px;
+  $map-height: 300px;
   font-family: $helvetica;
+  margin: 0;
 
-  header {
-    @include span_columns(11 of 12);
-    @include shift(1);
-    @include position(fixed, 0 0);
-    // @include size(10em auto);
-    background-color: blue;
-  }
   nav {
-    @include span_columns(1 of 12);
-    @include position(fixed, 0 0);
+    position: fixed;
+    @include size($nav-width 100%);
+  }
+
+  .map {
+    height: 300px;
+    position: relative;
+    background: #f55;
   }
 
   .container {
-    @include span_columns(10 of 12);
-    @include reset-display;
-    @include pad();
-    background-color: red;
+    margin-left: $nav-width;
+    height: 1000px;
+    width: auto;
+    position: relative;
+    background: #fff;
+    overflow: auto;
+    z-index: 1;
   }
 }
