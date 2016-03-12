@@ -3,11 +3,11 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    if user.admin?
-      can :manage, :all
+    if user.has_role? :admin
+      can :access, :rails_admin
+      can :dashboard
     else
-      can :read, :all
-      cannot :manage, :all
+      cannot :access, :rails_admin
     end
   end
 end
