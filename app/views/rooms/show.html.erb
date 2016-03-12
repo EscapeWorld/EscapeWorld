@@ -6,6 +6,11 @@
   <%= @room.name %>
 </p>
 
+<h2>Photos</h2>
+<% @room.photos.each do |photo| %>
+  <%= photo.name %>
+<% end %>
+
 <p>
 <strong>Directions: </strong>
   <small>A map would be here</small>
