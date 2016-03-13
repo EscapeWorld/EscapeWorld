@@ -29,16 +29,14 @@ $(document).ready(function(){
       var location = {};
       locationString = JSON.stringify(datum);
 
-      getLocations(splitAddress(locationString));
-      closeSearch();
+      searchCity(locationString);
   });
 
   $('.typeahead').bind('typeahead:autocomplete', function(obj, datum, name) {
       var location = {};
       locationString = JSON.stringify(datum);
 
-      getLocations(splitAddress(locationString));
-      closeSearch();
+      searchCity(locationString);
   });
 
   $('.typeahead[type=text]').on('keydown', function(e) {
@@ -47,8 +45,7 @@ $(document).ready(function(){
       var location = {};
       locationString = $(".typeahead").val();
 
-      getLocations(splitAddress(locationString));
-      closeSearch();
+      searchCity(locationString);
     }
   });
 
@@ -80,7 +77,9 @@ $(document).ready(function(){
     return location;
   }
 
-  function closeSearch() {
+  function searchCity(address) {
+    getLocations(splitAddress(locationString), );
     $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
   }
+
 });
