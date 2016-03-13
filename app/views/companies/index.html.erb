@@ -1,37 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Companies</h1>
+<div class="cards">
+  <% @companies.each do |company| %>
+    <%= link_to company_path(company), class: 'card' do %>
+      <div class="card-image">
+        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
+      </div>
+      <div class="card-header">
+        <%= company.name %>
+      </div>
+      <div class="card-copy">
+        <strong>Description:</strong>
+        <p><%= company.description %></p>
+        <strong>Website:</strong>
+        <p><%= company.website %></p>
+        <strong>Email:</strong>
+        <p><%= company.email %></p>
+        <strong>Phone:</strong>
+        <p><%= company.phone %></p>
+        <strong>Address:</strong>
+        <p><%= company.street %></p>
+        <p><%= company.city %>, <%= company.state %>, <%= company.zip %>
+    </div>
+  <% end %>
+<% end %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Website</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Street</th>
-      <th>Phone</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.name %></td>
-        <td><%= company.email %></td>
-        <td><%= company.website %></td>
-        <td><%= company.city %></td>
-        <td><%= company.state %></td>
-        <td><%= company.zip %></td>
-        <td><%= company.street %></td>
-        <td><%= company.phone %></td>
-        <td><%= company.description %></td>
-        <td><%= link_to 'Show', company %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
