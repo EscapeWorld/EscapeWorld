@@ -2,13 +2,14 @@ $(document).ready(function(){
   var dataset;
   $('.typeahead').typeahead({
     hint: true,
-    highlight: true,
-    minLength: 3
+    highlight: true
   },
   {
     name: 'cities',
     source: function(query, syncResults, asyncResults) {
-
+      if (query.length < 3) {
+        syncResults(substringMatcher(popularCities, query));
+      }
       if (query.length >= 3 && query.length <= 5) {
         $.ajax({
           url: 'http://gd.geobytes.com/AutoCompleteCity?callback=?&q=' + query,
@@ -29,6 +30,24 @@ $(document).ready(function(){
     $('.typeahead').trigger(ev);
     return true;
   });
+
+  var substringMatcher = function(data, query) {
+      var matches, substringRegex;
+      query = query.toUpperCase();
+
+      // an array that will be populated with substring matches
+      matches = [];
+
+      // iterate through the pool of strings and for any string that
+      // contains the substring `q`, add it to the `matches` array
+      $.each(data, function(i, str) {
+        if (str.toUpperCase().startsWith(query)) {
+          matches.push(str);
+        }
+      });
+
+      return matches;
+  };
 
   // function getcitydetails(fqcn) {
   //   if (typeof fqcn == "undefined") fqcn = jQuery("#f_elem_city").val();
