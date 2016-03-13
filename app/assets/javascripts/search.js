@@ -24,7 +24,6 @@ $(document).ready(function(){
     }
   });
   $('.typeahead').on('blur', function () {
-    alert("test");
     ev = $.Event("keydown");
     ev.keyCode = ev.which = 40;
     $('.typeahead').trigger(ev);
