@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<div class="cards"></div>
+
 <%= javascript_tag do %>
 
   function success(data) {
@@ -7,10 +9,19 @@
       lat: data.coords.latitude,
       lon: data.coords.longitude
       }, function (locations) {
-    console.log(locations);
-    locations.locations.forEach(function (location) {
+
+      var mapCenter = {
+        lat: locations.location[0],
+        lon: locations.location[1]
+      };
+
+      bittersMap(mapCenter).init();
+
+      locations.locations.forEach(function (location) {
         var container = document.querySelector('.container');  
+
         cardify(container, location);
+
       });
     });
   }
