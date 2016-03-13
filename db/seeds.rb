@@ -2,6 +2,7 @@
 
 User.delete_all
 Company.delete_all
+Location.delete_all
 
 # Users
 User.create(
@@ -17,7 +18,6 @@ User.create(
 )
 
 # Companies
-
 Company.create(
   name: 'Escape the Room Atlanta',
   city: 'Atlanta',
@@ -44,26 +44,34 @@ Company.create(
 
 Company.create(
   name: 'ParanoiaQuest',
+  street: '72 Broad St SW',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30303'
 )
 
 Company.create(
   name: 'Room Escape Atlanta',
-  city: 'Atlanta',
+  street: '1751 Montreal Cir',
+  city: 'Tucker',
   state: 'Georgia',
+  zip: '30084'
 )
 
 Company.create(
   name: 'Ultimate Escape Game',
+  street: '3200 Cobb Galleria Pkwy #150',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30339'
 )
 
 Company.create(
   name: 'Urban Escape Game',
-  city: 'Atlanta',
+  street: '20 Mansell Ct E #275',
+  city: 'Alpharetta',
   state: 'Georgia',
+  zip: '30076'
 )
 
 Company.create(
@@ -71,6 +79,7 @@ Company.create(
   street: '5825 Glenridge Dr Building 2, Suite 217',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30328',
   description: 'Experience this new and thrilling game with your friends',
   website: 'http://amazingescaperoom.com',
   email: 'support@amazingescaperoom.com',
@@ -79,13 +88,91 @@ Company.create(
 
 Company.create(
   name: 'Breakout Atlanta Escape Games',
+  street: '6375 Spalding Dr, Peachtree Corners, GA',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30092',
   description: 'Hands on Escape experience this likes of which you have never seen',
   website: 'http://breakoutatlanta.com',
   phone: '404-620-2477'
 )
 
 # Locations @TODO
+Location.create(
+  name: 'Escape the Room Atlanta',
+  city: 'Atlanta',
+  state: 'Georgia',
+)
+
+Location.create(
+  name: 'Global Escape Room',
+  city: 'Atlanta',
+  state: 'Georgia',
+)
+
+Location.create(
+  name: 'Locked In',
+  city: 'Atlanta',
+  state: 'Georgia',
+)
+
+Location.create(
+  name: 'Mission Escape',
+  city: 'Atlanta',
+  state: 'Georgia',
+)
+
+Location.create(
+  name: 'ParanoiaQuest',
+  street: '72 Broad St SW',
+  city: 'Atlanta',
+  state: 'Georgia',
+  zip: '30303'
+)
+
+Location.create(
+  name: 'Room Escape Atlanta',
+  street: '1751 Montreal Cir',
+  city: 'Tucker',
+  state: 'Georgia',
+  zip: '30084'
+)
+
+Location.create(
+  name: 'Ultimate Escape Game',
+  street: '3200 Cobb Galleria Pkwy #150',
+  city: 'Atlanta',
+  state: 'Georgia',
+  zip: '30339'
+)
+
+Location.create(
+  name: 'Urban Escape Game',
+  street: '20 Mansell Ct E #275',
+  city: 'Alpharetta',
+  state: 'Georgia',
+  zip: '30076'
+)
+
+Location.create(
+  name: 'Amazing Escape Room',
+  street: '5825 Glenridge Dr Building 2, Suite 217',
+  city: 'Atlanta',
+  state: 'Georgia',
+  zip: '30328',
+  description: 'Experience this new and thrilling game with your friends',
+  email: 'support@amazingescaperoom.com',
+  phone: '404-480-3852'
+)
+
+Location.create(
+  name: 'Breakout Atlanta Escape Games',
+  street: '6375 Spalding Dr, Peachtree Corners, GA',
+  city: 'Atlanta',
+  state: 'Georgia',
+  zip: '30092',
+  description: 'Hands on Escape experience this likes of which you have never seen',
+  phone: '404-620-2477'
+)
 
 # Rooms @TODO
