@@ -75,6 +75,11 @@ function success (position) {
   var geoData = {
     lat: lat,
     lon: lon
+  };
+
+  // store in session storage
+  if (typeof(Storage) !== 'undefined') {
+     sessionStorage.setItem('geodata', JSON.stringify(geoData));
   }
 
   // build bitters map
@@ -82,10 +87,15 @@ function success (position) {
 }
 
 function error () {
-  console.log('didnt get data')
+  console.log('didnt get data');
 }
 
 // put the whole thing in motion!
 window.onload = function () {
-  navigator.geolocation.getCurrentPosition(success, error)
-}
+  var isGeoInStorage = sessionStorage.getItem('geodata');
+  if (isGeoInStorage) {
+    bittersMap(JSON.parse(isGeoInStorage)).init();
+  } else {
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+};
