@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # Rails Admin Routes
   mount RailsAdmin::Engine => '/y', as: 'rails_admin'
 
+  get '/locations/api'
+
   # Resource Routes
   resources :rooms
   resources :categories
@@ -14,4 +16,5 @@ Rails.application.routes.draw do
   resources :categories
   resources :locations
   resources :companies
+
 end

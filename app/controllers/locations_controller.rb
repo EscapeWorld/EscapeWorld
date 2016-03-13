@@ -13,6 +13,41 @@ class LocationsController < ApplicationController
     @rooms = @location.rooms.all
   end
 
+  def api
+
+    # This come from the search form
+    @city = params[:city]
+    @state = params[:state]
+    @country = params[:country]
+
+    @lat = params[:lat]
+    @lon = params[:lon]
+
+    # this comes from HTML5 Geolocation
+    if (params[:lat].nil? || params[:lon].nil?)
+      @location = [@city, @state, @country].join(', ')
+    else
+      @location = [@lat, @lon]
+    end
+
+    # Build our query
+    if (@lon.nil? || @lat.nil?)
+      @locations = Location.near(@location)
+    else
+      @locations = Location.near(@location)
+    end
+
+    # Build our return data
+    @data = {
+      location: @location,
+      locations: @locations,
+      count: @locations.count(:all)
+    }
+
+    respond_to do |f|
+      f.json { render :json => @data }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
