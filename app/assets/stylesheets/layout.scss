@@ -9,7 +9,7 @@ body {
     @include size($nav-width 100%);
   }
 
-  .map {
+  #map_canvas {
     height: 300px;
     position: relative;
     background: #f55;
