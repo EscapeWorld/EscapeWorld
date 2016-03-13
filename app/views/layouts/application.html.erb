@@ -11,7 +11,7 @@
     <ul>
       <li>
         <%= link_to companies_path do %>
-          <span class="icon-search">Search</span>
+          <span class="icon-search js-menu-trigger sliding-panel-button">Search</span>
         <% end %>
       </li>
       <li>
@@ -49,7 +49,11 @@
   </nav>
 
   <div class="container">
-    <div id="map_canvas"></div>
+    <div id="map_canvas"><div class='animate-target animated alternate iteration zoomOut'></div></div>
+    <div class="js-menu sliding-panel-content">
+      <h2>Search an area:</h2>
+      <input class="typeahead" type="text" placeholder="City">
+    </div>
     <%= yield %>
   </div>
 

@@ -7,6 +7,7 @@ body {
   nav {
     position: fixed;
     @include size($nav-width 100%);
+    z-index: 999999;
   }
 
   #map_canvas {

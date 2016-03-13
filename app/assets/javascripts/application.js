@@ -10,7 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require maps.api
 //= require jquery
 //= require jquery_ujs
+//= require maps.api
+//= require typeahead.bundle.min
 //= require_tree .
