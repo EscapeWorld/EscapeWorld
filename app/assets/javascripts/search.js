@@ -10,7 +10,7 @@ $(document).ready(function(){
       if (query.length < 3) {
         syncResults(substringMatcher(popularCities, query));
       }
-      if (query.length >= 3 && query.length <= 5) {
+      if (query.length >= 3 && query.length <= 8) {
         $.ajax({
           url: 'http://gd.geobytes.com/AutoCompleteCity?callback=?&q=' + query,
           dataType: "jsonp",
@@ -24,14 +24,32 @@ $(document).ready(function(){
       }
     }
   });
-  $('.typeahead').on('blur', function () {
-    ev = $.Event("keydown");
-    ev.keyCode = ev.which = 40;
-    $('.typeahead').trigger(ev);
-    return true;
+
+  $('.typeahead').bind('typeahead:selected', function(obj, datum, name) {
+      var location = {};
+      locationString = JSON.stringify(datum);
+
+      searchCity(locationString);
   });
 
-  var substringMatcher = function(data, query) {
+  $('.typeahead').bind('typeahead:autocomplete', function(obj, datum, name) {
+      var location = {};
+      locationString = JSON.stringify(datum);
+
+      searchCity(locationString);
+  });
+
+  $('.typeahead[type=text]').on('keydown', function(e) {
+    if (e.which == 13) {
+      e.preventDefault();
+      var location = {};
+      locationString = $(".typeahead").val();
+
+      searchCity(locationString);
+    }
+  });
+
+  function substringMatcher(data, query) {
       var matches, substringRegex;
       query = query.toUpperCase();
 
@@ -47,19 +65,21 @@ $(document).ready(function(){
       });
 
       return matches;
-  };
+  }
 
-  // function getcitydetails(fqcn) {
-  //   if (typeof fqcn == "undefined") fqcn = jQuery("#f_elem_city").val();
-  //   cityfqcn = fqcn;
-  //   if (cityfqcn) {
-  //       jQuery.getJSON(
-  //                   "http://gd.geobytes.com/GetCityDetails?callback=?&fqcn="+cityfqcn,
-  //                      function (data) {
-  //               jQuery("#geobyteslatitude").val(data.geobyteslatitude);
-  //               jQuery("#geobyteslongitude").val(data.geobyteslongitude);
-  //               }
-  //       );
-  //   }
-  // }
+  function splitAddress(address) {
+    var addressArray = address.split(',');
+    var location = {
+      city: addressArray[0],
+      state: addressArray[1],
+      country: addressArray[2]
+    };
+    return location;
+  }
+
+  function searchCity(address) {
+    getLocations(splitAddress(locationString));
+    $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
+  }
+
 });
