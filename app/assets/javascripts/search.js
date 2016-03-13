@@ -78,7 +78,7 @@ $(document).ready(function(){
   }
 
   function searchCity(address) {
-    getLocations(splitAddress(locationString), );
+    getLocations(splitAddress(locationString));
     $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
   }
 
