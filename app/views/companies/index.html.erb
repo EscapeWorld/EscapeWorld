@@ -10,14 +10,27 @@
         <%= company.name %>
       </div>
       <div class="card-copy">
-        <strong>Description:</strong>
-        <p><%= company.description %></p>
-        <strong>Website:</strong>
-        <p><%= company.website %></p>
-        <strong>Email:</strong>
-        <p><%= company.email %></p>
-        <strong>Phone:</strong>
-        <p><%= company.phone %></p>
+
+        <% if !company.description.nil? %>
+          <strong>Description:</strong>
+          <p><%= company.description %></p>
+        <% end %>
+
+        <% if !company.website.nil? %>
+          <strong>Website:</strong>
+          <p><%= company.website %></p>
+        <% end %>
+
+        <% if !company.email.nil? %>
+          <strong>Email:</strong>
+          <p><%= company.email %></p>
+        <% end %>
+
+        <% if !company.phone.nil? %>
+          <strong>Phone:</strong>
+          <p><%= company.phone %></p>
+        <% end %>
+
         <strong>Address:</strong>
         <p><%= company.street %></p>
         <p><%= company.city %>, <%= company.state %>, <%= company.zip %>
