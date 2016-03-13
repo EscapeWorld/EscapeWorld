@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   root 'site#index'
 
   # Devise Routes
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
+  devise_for :users
 
   # Rails Admin Routes
   mount RailsAdmin::Engine => '/y', as: 'rails_admin'
