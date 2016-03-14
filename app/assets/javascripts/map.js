@@ -7,7 +7,7 @@ var bittersMap = function (geo) {
         zoom: 9,
         scrollwheel: false,
         draggable: true,
-        disableDefaultUI: true,
+        disableDefaultUI: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       },
       map = new google.maps.Map(mapCanvas, mapOptions),
