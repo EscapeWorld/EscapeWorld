@@ -1,38 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <%= javascript_tag do %>
-
-  function success(data) {
-    getLocations({
-      lat: data.coords.latitude,
-      lon: data.coords.longitude
-      }, function (locations) {
-    console.log(locations);
-    locations.locations.forEach(function (location) {
-        var container = document.querySelector('.container');  
-        cardify(container, location);
-      });
-    });
-  }
-
-  function cardify (container, location) {
-    container.innerHTML += `
-      <div class="card">
-        <div class="card-header">
-          ${location.name}
-        </div>
-        <div class="card-copy">
-          <strong>Address: </strong>
-          <p>${location.street}</p>
-        </div>
-      </div>
-      `
-  }
-
-  function error () {
-    console.log('didnt get the data');
-  }
-
-  navigator.geolocation.getCurrentPosition(success, error);
-
+  // defined in locations.js:
+  // fetches remote data from the api
+  // builds the cards on /locations
+  // renders markers on the map
+  locations();
 <% end %>
+
+<div class="cards"></div>

@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @location.name %> <small>by <%= link_to @location.company.name, company_path(@location.company) %></small></h1>
+<%= javascript_tag do %>
+  var locationMarker = {
+    lat: <%= @location.latitude %>,
+    lon: <%= @location.longitude %>
+  }
+
+  bittersMap(locationMarker).init();
+
+  <% end %>
+
+<h1><%= @location.name %> </h1>
 
 <p>
   <strong>Description:</strong>
@@ -22,11 +32,13 @@
 </p>
 
 <p>
+  <% if !@location.start_time.nil? %>
   <strong>Opens</strong>
   <%= @location.start_time.strftime('%I:%M %p') %>
 
   <strong>Closes</strong>
   <%= @location.end_time.strftime('%I:%M %p') %>
+  <% end %>
 </p>
 
 <hr />
