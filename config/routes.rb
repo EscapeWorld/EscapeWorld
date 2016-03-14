@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'site#index'
 
+  match '/learn' => 'site#learn', via: :get
   # Devise Routes
   devise_for :users
 
