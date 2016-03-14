@@ -5,24 +5,33 @@
 <%= javascript_tag do %>
 
   function success(data) {
+
     getLocations({
       lat: data.coords.latitude,
       lon: data.coords.longitude
-      }, function (locations) {
+    }, function (locations) {
 
       var mapCenter = {
         lat: locations.location[0],
         lon: locations.location[1]
       };
 
-      bittersMap(mapCenter).init();
+      var map = bittersMap(mapCenter);
 
       locations.locations.forEach(function (location) {
-        var container = document.querySelector('.container');  
+        var container = document.querySelector('.cards');  
 
         cardify(container, location);
 
+        var markData = {
+          lat: location.latitude,
+          lon: location.longitude
+        }
+
+        map.mark(markData);
+
       });
+
     });
   }
 
@@ -33,11 +42,12 @@
           ${location.name}
         </div>
         <div class="card-copy">
+          <strong>Name: </strong>
+          <p>${location.name}</p>
           <strong>Address: </strong>
           <p>${location.street}</p>
         </div>
-      </div>
-      `
+      </div>`
   }
 
   function error () {

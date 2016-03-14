@@ -4,7 +4,7 @@ var bittersMap = function (geo) {
       mapCanvas = document.getElementById('map_canvas'),
       mapOptions = {
         center: mapCenter,
-        zoom: 13,
+        zoom: 9,
         scrollwheel: false,
         draggable: true,
         disableDefaultUI: true,
@@ -61,8 +61,6 @@ var bittersMap = function (geo) {
         console.log('map is ok?');
         infowindow.open(map,home);
       });
-
-      console.log(geo);
     }
   };
 };
@@ -83,7 +81,9 @@ function success (position) {
   }
 
   // build bitters map
-  bittersMap(geoData).init();
+  var map = bittersMap(geoData);
+  //map.init();
+  //bittersMap(geoData).init();
 }
 
 function error () {
