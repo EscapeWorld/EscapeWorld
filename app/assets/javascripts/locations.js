@@ -53,11 +53,11 @@ function locations () {
       // map over list of locations
       // apply cardify to each item
       // return an array of cardified items
-  //    var cards = locations.locations.map(function (location) {
-  //      return cardify(location);
-  //    });
+    //var cards = locations.locations.map(function (location) {
+    //  return cardify(location);
+    //});
       // join them by newline and append them to container
-  //    container += cards.join('\n\n');
+    //container += cards.join('\n\n');
 
       // mark map points
       // set event listeners on cards
@@ -88,7 +88,7 @@ function locations () {
 
 function cardify (container, location) {
   container.innerHTML += `
-    <div class="card" data-location="${location.id}" onclick="window.location='/locations/${location.id}'">
+    <div class="card" onclick="window.location='/locations/${location.id}'">
       <div class="card-copy">
         <p>${location.name}</p>
         <hr />
