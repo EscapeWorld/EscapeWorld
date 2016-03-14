@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
-  layout false
+  layout 'static'
 
   def index
   end
