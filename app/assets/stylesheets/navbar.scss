@@ -1,6 +1,21 @@
+// NavBar Styling
+$nav-font-color: #aaa;
+
 nav {
   background: #000;
+  text-align: center;
 
+  a {
+    color: #aaa;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: lighten(red, 50%);
+    }
+  }
+
+  //Icon Sizing
   span::before {
     font-size: 3em;
     display: block;
@@ -9,13 +24,11 @@ nav {
     display: block;
     padding: 10px;
   }
-
-  text-align: center;
-
 }
 
 $search-width: 400px;
 
+// Search Panel
 .sliding-panel-content {
   $action-color: #477DCA !default;
   $dark-gray: #333 !default;
@@ -100,6 +113,7 @@ $search-width: 400px;
   }
 }
 
+// Typeahead Search Bar
 .twitter-typeahead {
   @include span-columns(12 of 12);
 }

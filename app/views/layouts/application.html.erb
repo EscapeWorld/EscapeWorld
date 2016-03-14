@@ -10,7 +10,7 @@
   <nav>
     <ul>
       <li>
-        <span class="icon-search js-menu-trigger sliding-panel-button">Search</span>
+        <a href='#'><span class="icon-search js-menu-trigger sliding-panel-button">Search</span></a>
       </li>
       <li>
         <%= link_to companies_path do %>
@@ -27,18 +27,13 @@
           <span class="icon-books">Learn</span>
         <% end %>
       </li>
-      <li>
-        <%= link_to companies_path do %>
-          <span class="icon-cog">Settings</span>
-        <% end %>
-      </li>
-
-      <li><%= link_to 'Locations', locations_path %></li>
-      <li><%= link_to 'Rooms', rooms_path %></li>
       <!-- devise login / logout links -->
       <% if user_signed_in? %>
-        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li>
+          <%= link_to edit_user_registration_path do %>
+            <span class="icon-cog">Settings</span>
+          <% end %>
+        </li>
       <% else %>
         <li><%= link_to 'Sign Up', new_user_registration_path %></li>
         <li><%= link_to 'Sign In', new_user_session_path %></li>
