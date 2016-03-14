@@ -10,6 +10,7 @@ var bittersMap = function (geo) {
         disableDefaultUI: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       },
+      markerBounds = new google.maps.LatLngBounds(),
       map = new google.maps.Map(mapCanvas, mapOptions),
       contentString =
         '<div id="content">'+
@@ -41,9 +42,26 @@ var bittersMap = function (geo) {
           { lightness: 10}
         ]}
       ]);
+      // This will add the marker to the markerBounds Object
+      markerBounds.extend(myLatlng);
+      // this will fit the viewport and zoom based on all markerBound markers.
+      map.initialZoom = true;
+      map.fitBounds(markerBounds);
 
       google.maps.event.addListener(marker, 'click', function () {
         infowindow.open(map,marker);
+      });
+
+      google.maps.event.addListener(map, 'zoom_changed', function() {
+        zoomChangeBoundsListener =
+            google.maps.event.addListener(map, 'bounds_changed', function(event) {
+                if (this.getZoom() > 14 && this.initialZoom === true) {
+                    // Change max/min zoom here
+                    this.setZoom(14);
+                    this.initialZoom = false;
+                }
+            google.maps.event.removeListener(zoomChangeBoundsListener);
+        });
       });
     },
 
@@ -56,11 +74,13 @@ var bittersMap = function (geo) {
         map: map,
         title: 'home'
       });
+      markerBounds.extend(myLatlng);
 
       google.maps.event.addListener(home, 'click', function () {
         console.log('map is ok?');
         infowindow.open(map,home);
       });
+     map.fitBounds(markerBounds);
     }
   };
 };

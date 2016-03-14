@@ -7,39 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li>
-        <a href='#'><span class="icon-search js-menu-trigger sliding-panel-button">Search</span></a>
-      </li>
-      <li>
-        <%= link_to companies_path do %>
-          <span class="icon-map">Browse</span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to companies_path do %>
-          <span class="icon-clipboard">Itinerary</span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to companies_path do %>
-          <span class="icon-books">Learn</span>
-        <% end %>
-      </li>
-      <!-- devise login / logout links -->
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to edit_user_registration_path do %>
-            <span class="icon-cog">Settings</span>
-          <% end %>
-        </li>
-      <% else %>
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-      <% end %>
-    </ul>
-  </nav>
+  <%= render "layouts/navigation" %>
 
   <div class="container">
     <div id="map_canvas"><div class='animate-target animated alternate iteration zoomOut'></div></div>
@@ -47,9 +15,11 @@
       <h2>Search an area:</h2>
       <input class="typeahead" type="text" placeholder="City">
     </div>
+
     <%= yield %>
+
+    <%= render "layouts/footer" %>
   </div>
 
-  <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
 </body>
 </html>

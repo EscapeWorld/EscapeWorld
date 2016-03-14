@@ -18,11 +18,15 @@ body {
 
   .container {
     margin-left: $nav-width;
-    height: 1000px;
     width: auto;
     position: relative;
     background: #fff;
     overflow: auto;
     z-index: 1;
+  }
+
+  footer {
+    position: relative;
+    width: auto;
   }
 }
