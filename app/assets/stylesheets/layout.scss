@@ -3,6 +3,7 @@ body {
   $map-height: 300px;
   font-family: $helvetica;
   margin: 0;
+  color: white;
 
   nav {
     position: fixed;
@@ -11,18 +12,26 @@ body {
   }
 
   #map_canvas {
+    $background-color: rgba(255,55,55,0.4);
     height: 300px;
     position: relative;
-    background: #f55;
+    background-color: $background-color;
   }
 
   .container {
+    $background-color: #333;
+
     margin-left: $nav-width;
     width: auto;
     position: relative;
-    background: #fff;
+    background-color: $background-color;
     overflow: auto;
     z-index: 1;
+
+    $texture-top-background: lighten($background-color, 1%);
+    $texture-bottom-background: darken($background-color, 60%);
+    // gradient color 1, gradient color 2, gradient angle, texture-number, 0=inverted or 1=normal
+    @include texture(180deg, $texture-top-background, $texture-bottom-background, 67, 1);
   }
 
   footer {
