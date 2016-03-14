@@ -23,24 +23,28 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Server stuff
 gem 'puma'
 gem 'foreman'
 
+# authentication / authorization / admin
 gem 'devise'
 gem 'cancancan'
+gem 'rails_admin'
 
+# Styles
 gem 'bourbon', '~>4.2.6'
 gem 'neat'
 gem 'bitters', '~>1.2.0'
 
+# geolocation 
 gem 'geocoder'
 
+# Heroku nonsense
 gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-gem 'rails_admin'
 
 group :development do
   gem 'rails-erd'
