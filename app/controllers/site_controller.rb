@@ -1,8 +1,9 @@
 class SiteController < ApplicationController
+  layout false
+
   def index
   end
 
   def learn
-    render layout: false
   end
 end

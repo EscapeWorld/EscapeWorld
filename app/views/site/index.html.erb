@@ -1,1 +1,24 @@
-Welcome To EscapeWorld
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EscapeWorld</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "layouts/navigation" %>
+
+  <div class="container">
+    <div class="js-menu sliding-panel-content">
+      <h2>Search an area:</h2>
+      <input class="typeahead" type="text" placeholder="Search a city:">
+    </div>
+
+    <p>Welcome to Escape World</p>
+
+    <%= render "layouts/footer" %>
+  </div>
+
+</body>
+</html>
