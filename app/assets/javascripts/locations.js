@@ -12,12 +12,27 @@
 
 // {lat: 33.772, lon: -84.336}
 
+// The callback is handed a response object with the following attributes:
+// * location
+//    The location attribute is an array of latitude and longitude for the
+//    center of the search space (where the user currently is or the city
+//    they have chosen to search in
+// * locations
+//    The locations attribute contains an array of Location objects with
+//    information about name, address, geo coordinates, etc
+// * count
+//    The count attribute contains the number of locations found
+
 function getLocations(location, callback) {
   $.getJSON('/locations/api.json', location)
    .done(function (data) {
      callback(data);
    });
 }
+
+// the "locations" function is called on the locations index page to:
+// * build the map with markers
+// * build buildap
 
 function locations () {
 
@@ -67,20 +82,18 @@ function locations () {
     console.log('didnt get the data');
   }
 
+  // Oooooooooh yeaaaaaaaah!
   navigator.geolocation.getCurrentPosition(success, error);
 }
 
 function cardify (container, location) {
   container.innerHTML += `
     <div class="card" data-location="${location.id}" onclick="window.location='/locations/${location.id}'">
-      <div class="card-header">
-        ${location.name}
-      </div>
       <div class="card-copy">
-        <strong>Name: </strong>
         <p>${location.name}</p>
-        <strong>Address: </strong>
+        <hr />
         <p>${location.street}</p>
+        <p>${location.city}, ${location.state}, ${location.zip}</p>
       </div>
     </div>`
 }

@@ -20,26 +20,34 @@ User.create(
 # Companies
 Company.create(
   name: 'Escape the Room Atlanta',
+  street: '202 Peachtree St NE',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30303'
 )
 
 Company.create(
   name: 'Global Escape Room',
+  street: '2255 Cumberland Pkwy SE',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30339'
 )
 
 Company.create(
   name: 'Locked In',
+  street: '265 18th Street Nw Suite 4270',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30363'
 )
 
 Company.create(
   name: 'Mission Escape',
+  street: '500 Bishop St NW E3',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30318'
 )
 
 Company.create(
@@ -100,26 +108,34 @@ Company.create(
 # Locations @TODO
 Location.create(
   name: 'Escape the Room Atlanta',
+  street: '202 Peachtree St NE',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30303'
 )
 
 Location.create(
   name: 'Global Escape Room',
+  street: '2255 Cumberland Pkwy SE',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30339'
 )
 
 Location.create(
   name: 'Locked In',
+  street: '265 18th Street Nw Suite 4270',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30363'
 )
 
 Location.create(
   name: 'Mission Escape',
+  street: '500 Bishop St NW E3',
   city: 'Atlanta',
   state: 'Georgia',
+  zip: '30318'
 )
 
 Location.create(
