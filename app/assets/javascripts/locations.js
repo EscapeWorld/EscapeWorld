@@ -50,18 +50,6 @@ function locations () {
 
       var map = bittersMap(mapCenter);
 
-      // map over list of locations
-      // apply cardify to each item
-      // return an array of cardified items
-    //var cards = locations.locations.map(function (location) {
-    //  return cardify(location);
-    //});
-      // join them by newline and append them to container
-    //container += cards.join('\n\n');
-
-      // mark map points
-      // set event listeners on cards
-
       locations.locations.forEach(function (location) {
         var container = document.querySelector('.cards');  
         cardify(container, location);

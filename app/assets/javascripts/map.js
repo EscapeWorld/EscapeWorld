@@ -65,6 +65,27 @@ var bittersMap = function (geo) {
   };
 };
 
+// ---
+function BittersMap2 () {
+
+  function init () {
+  }
+
+  // accepts a point
+  function mark (point) {
+  }
+
+  function center (mapCenter) {
+  }
+
+  return {
+    init: init,
+    mark: mark,
+    center: center
+  }
+}
+// ---
+
 function success (position) {
   var lat = position.coords.latitude;
   var lon = position.coords.longitude;
