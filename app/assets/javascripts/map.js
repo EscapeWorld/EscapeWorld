@@ -12,19 +12,6 @@ var bittersMap = function (geo) {
       },
       markerBounds = new google.maps.LatLngBounds(),
       map = new google.maps.Map(mapCanvas, mapOptions),
-      contentString =
-        '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">home</h1>'+ // this needs to be dynamic
-        '<div id="bodyContent"'+
-        '<p>Atlanta, Ga</p>'+ // This is going to need to be dynamic somehow
-        '</div>'+
-        '</div>',
-      infowindow = new google.maps.InfoWindow({
-        content: contentString,
-        maxWidth: 300
-      }),
       marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
@@ -85,27 +72,6 @@ var bittersMap = function (geo) {
   };
 };
 
-// ---
-function BittersMap2 () {
-
-  function init () {
-  }
-
-  // accepts a point
-  function mark (point) {
-  }
-
-  function center (mapCenter) {
-  }
-
-  return {
-    init: init,
-    mark: mark,
-    center: center
-  }
-}
-// ---
-
 function success (position) {
   var lat = position.coords.latitude;
   var lon = position.coords.longitude;
@@ -122,9 +88,7 @@ function success (position) {
   }
 
   // build bitters map
-  var map = bittersMap(geoData);
-  //map.init();
-  //bittersMap(geoData).init();
+  bittersMap(geoData);
 }
 
 function error () {
@@ -135,7 +99,8 @@ function error () {
 window.onload = function () {
   var isGeoInStorage = sessionStorage.getItem('geodata');
   if (isGeoInStorage) {
-    bittersMap(JSON.parse(isGeoInStorage)).init();
+    console.log(isGeoInStorage);
+    bittersMap().init();
   } else {
     navigator.geolocation.getCurrentPosition(success, error);
   }
