@@ -38,6 +38,16 @@ body {
     }
   }
 
+  section {
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: transparentize(black, .8);
+  }
+
+  article {
+    margin: 10px 30px;
+  }
+
   footer {
     position: relative;
     width: auto;
