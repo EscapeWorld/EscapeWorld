@@ -51,8 +51,8 @@ function locations () {
     }
     getLocations(data, function (locations) {
       var mapCenter = {
-        lat: locations.location[0],
-        lon: locations.location[1]
+        lat: locations.center[0],
+        lon: locations.center[1]
       };
 
       var map = bittersMap(mapCenter);

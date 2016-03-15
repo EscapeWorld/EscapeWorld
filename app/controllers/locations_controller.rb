@@ -37,8 +37,11 @@ class LocationsController < ApplicationController
       @locations = Location.near(@location)
     end
 
+    @centercoords = Geocoder.coordinates(@location)
+
     # Build our return data
     @data = {
+      center: @centercoords,
       location: @location,
       locations: @locations,
       count: @locations.count(:all)
