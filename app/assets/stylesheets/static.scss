@@ -18,6 +18,7 @@
     @include flex-grow(1);
     @include margin(null 10px);
     @include padding(5px);
+    padding-bottom: 2em;
   }
 
   .bullet-icon {
@@ -76,6 +77,6 @@
     position: absolute;
     bottom: 0;
     left: 3.5em * 1.5;
-    margin-bottom: 10px;
+    margin-bottom: 2em;
   }
 }

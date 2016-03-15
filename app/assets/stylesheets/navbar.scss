@@ -24,6 +24,13 @@ nav {
     display: block;
     padding: 10px;
   }
+
+  img {
+    padding: 5px;
+    margin-top: 5px;
+    opacity: .9;
+    @include size(75px auto);
+  }
 }
 
 $search-width: 400px;
