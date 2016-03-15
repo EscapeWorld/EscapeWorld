@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.logo {
+  background-image: url('../imgs/escapeback.jpg');
+  width: 100%;
+  padding-top: 50px;
+  height: 300px;
+  background-attachment: fixed;
+}
+
 @mixin texture($gradient-angle, $bg-color-1, $bg-color-2, $texture-number, $inverted) { $texture-list:
   "paper.png"             // Fabric and paper
   "rice_paper.png"
