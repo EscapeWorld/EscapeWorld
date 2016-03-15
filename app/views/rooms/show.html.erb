@@ -1,28 +1,19 @@
-<p id="notice"><%= notice %></p>
 
-<h1><%= @room.name %> <small>at <%= link_to @room.location.name, location_path(@room.location) %></small></h1>
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-</p>
+<div class="side-image">
+  <div class="images-wrapper"></div>
+  <div class="side-image-content">
+    <h4><%= @room.name %> -- <%= @room.location.name %></h4>
+    <p><%= @room.description %></p>
+    <h4>Address</h4>
+    <p>
+      <%= @room.location.street %>
+      <%= @room.location.city %>, <%= @room.location.state %>, <%= @room.location.zip %>
+    </p>
+  </div>
+  <% @room.photos.each do |photo| %>
+    <%= photo.name %>
+  <% end %>
+</div>
 
-<h2>Photos</h2>
-<% @room.photos.each do |photo| %>
-  <%= photo.name %>
-<% end %>
-
-<p>
-<strong>Directions: </strong>
-  <small>A map would be here</small>
-  <p>
-    <%= @room.location.street %>
-    <%= @room.location.city %>, <%= @room.location.state %>, <%= @room.location.zip %>
-  </p>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @room.description %>
-</p>
 
 <%= link_to 'Back', rooms_path %>
