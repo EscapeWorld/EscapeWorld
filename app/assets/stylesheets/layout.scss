@@ -32,6 +32,10 @@ body {
     $texture-bottom-background: darken($background-color, 60%);
     // gradient color 1, gradient color 2, gradient angle, texture-number, 0=inverted or 1=normal
     @include texture(180deg, $texture-top-background, $texture-bottom-background, 67, 1);
+
+    .content {
+      min-height: 100vh;
+    }
   }
 
   footer {

@@ -8,18 +8,19 @@
 </head>
 <body>
   <%= render "layouts/navigation" %>
+  <div class="js-menu sliding-panel-content">
+    <h2>Search an area:</h2>
+    <input class="typeahead" type="text" placeholder="Search a city:">
+  </div>
 
   <div class="container">
     <div id="map_canvas"><div class='animate-target animated alternate iteration zoomOut'></div></div>
-    <div class="js-menu sliding-panel-content">
-      <h2>Search an area:</h2>
-      <input class="typeahead" type="text" placeholder="Search a city:">
-    </div>
 
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
 
     <%= render "layouts/footer" %>
   </div>
-
 </body>
 </html>
