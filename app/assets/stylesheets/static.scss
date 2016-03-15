@@ -11,10 +11,11 @@
   overflow: auto;
   padding: 0;
   padding-top: 20px;
+  font-size: 1.5em;
 
   .bullet {
     position: relative;
-    @include flex-basis(20em);
+    @include flex-basis(13em);
     @include flex-grow(1);
     @include margin(null 10px);
     @include padding(5px);
@@ -67,6 +68,7 @@
   p {
     color: $base-font-color;
     line-height: $base-line-height;
+    font-size: $icon-bullet-size / 4;
   }
 
   img{
