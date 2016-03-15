@@ -88,7 +88,7 @@ function success (position) {
   }
 
   // build bitters map
-  bittersMap(geoData);
+  // bittersMap(geoData);
 }
 
 function error () {
@@ -99,7 +99,6 @@ function error () {
 window.onload = function () {
   var isGeoInStorage = sessionStorage.getItem('geodata');
   if (isGeoInStorage) {
-    console.log(isGeoInStorage);
     bittersMap().init();
   } else {
     navigator.geolocation.getCurrentPosition(success, error);

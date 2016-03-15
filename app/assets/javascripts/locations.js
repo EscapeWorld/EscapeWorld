@@ -35,14 +35,21 @@ function getLocations(location, callback) {
 // * build buildap
 
 function locations () {
-
-  function success(data) {
-
-    getLocations({
-      lat: data.coords.latitude,
-      lon: data.coords.longitude
-    }, function (locations) {
-
+    var search = JSON.parse(sessionStorage.getItem('searchLocation'));
+    if (search) {
+      var data = {
+        city: search.city,
+        state: search.state,
+        country: search.country
+      };
+    } else {
+      var geo = JSON.parse(sessionStorage.getItem('geodata'));
+      data = {
+        lat: geo.lat,
+        lon: geo.lon
+      };
+    }
+    getLocations(data, function (locations) {
       var mapCenter = {
         lat: locations.location[0],
         lon: locations.location[1]
@@ -51,7 +58,7 @@ function locations () {
       var map = bittersMap(mapCenter);
 
       locations.locations.forEach(function (location) {
-        var container = document.querySelector('.cards');  
+        var container = document.querySelector('.cards');
         cardify(container, location);
 
         var markData = {
@@ -64,14 +71,14 @@ function locations () {
       });
 
     });
-  }
+  // }
 
   function error () {
     console.log('didnt get the data');
   }
 
   // Oooooooooh yeaaaaaaaah!
-  navigator.geolocation.getCurrentPosition(success, error);
+  // navigator.geolocation.getCurrentPosition(success, error);
 }
 
 function cardify (container, location) {

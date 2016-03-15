@@ -68,8 +68,6 @@ $(document).ready(function(){
   }
 
   function splitAddress(address) {
-    // remove double quotes from string
-    address = address.substring(1, address.length-1);
     var addressArray = address.split(', ');
     console.log(addressArray);
     var location = {
@@ -83,18 +81,20 @@ $(document).ready(function(){
   // this only kinda works?
   // the map doesn't seem to re-render for different cities
   function searchCity(address) {
-    getLocations(splitAddress(locationString), function (data) {
-      var isGeoInStorage = sessionStorage.getItem('geodata');
-      var searchMap = bittersMap(isGeoInStorage);
-      console.log(data);
-      data.locations.forEach(function (location) {
-        searchMap.mark({
-          lat: location.latitude,
-          lon: location.longitude
-        });
-      });
-    });
+      sessionStorage.setItem('searchLocation', JSON.stringify(splitAddress(address)));
+    // getLocations(splitAddress(locationString), function (data) {
+    //   var isGeoInStorage = sessionStorage.getItem('geodata');
+    //   var searchMap = bittersMap(isGeoInStorage);
+    //   console.log(data);
+    //   data.locations.forEach(function (location) {
+    //     searchMap.mark({
+    //       lat: location.latitude,
+    //       lon: location.longitude
+    //     });
+    //   });
+    // });
     $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
+    window.location.href = '/locations';
   }
 
 });
