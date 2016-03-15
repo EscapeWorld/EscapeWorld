@@ -1,16 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<div class="cards">
-  <% @rooms.each do |room| %>
-    <div class="card" onclick="window.location='/rooms/<%= room.id %>'">
-      <div class="card-copy">
+<div class="grid-items">
+  <% @rooms.each_with_index do |room, index| %>
+  <% if room.id % 4 == 0 %>
+    <div class="grid-item grid-item-big" onclick="window.location='/rooms/<%= room.id %>'">
+      <h1>
+          <%= room.name %> at <%= room.location.name %>
+        </h1>
+        <p>
+          <%= truncate(room.description, length: 140, omission: '... Read More') %>
+        </p>
+    </div>
+  <% else %>
+    <div class="grid-item" onclick="window.location='/rooms/<%= room.id %>'">
         <h1>
           <%= room.name %> at <%= room.location.name %>
         </h1>
         <p>
-          <%= room.description %>
+          <%= truncate(room.description, length: 75, omission: '... Read More') %>
         </p>
-      </div>
     </div>
+  <% end %>
   <% end %>
 </div>
