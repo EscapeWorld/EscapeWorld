@@ -13,6 +13,7 @@
   padding-top: 20px;
 
   .bullet {
+    position: relative;
     @include flex-basis(20em);
     @include flex-grow(1);
     @include margin(null 10px);
@@ -45,6 +46,10 @@
     margin-bottom: 2em;
   }
 
+  span {
+    font-size: $icon-bullet-size * .5;
+  }
+
   h2 {
     border-bottom: 1px solid transparentize($base-font-color, 0.8);
     display: inline-block;
@@ -63,7 +68,14 @@
     line-height: $base-line-height;
   }
 
-  img {
+  img{
     max-width: 100%;
+  }
+
+  a {
+    position: absolute;
+    bottom: 0;
+    left: 3.5em * 1.5;
+    margin-bottom: 10px;
   }
 }
