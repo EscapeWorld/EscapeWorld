@@ -68,7 +68,10 @@ $(document).ready(function(){
   }
 
   function splitAddress(address) {
-    var addressArray = address.split(',');
+    // remove double quotes from string
+    address = address.substring(1, address.length-1);
+    var addressArray = address.split(', ');
+    console.log(addressArray);
     var location = {
       city: addressArray[0],
       state: addressArray[1],
