@@ -6,4 +6,7 @@ class SiteController < ApplicationController
 
   def learn
   end
+
+  def strategy
+  end
 end

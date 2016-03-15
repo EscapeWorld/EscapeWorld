@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root 'site#index'
 
+  # static page handlers
   match '/learn' => 'site#learn', via: :get
+  match '/strategy' => 'site#learn', via: :get
+
   # Devise Routes
   devise_for :users
 
