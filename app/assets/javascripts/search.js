@@ -43,7 +43,7 @@ $(document).ready(function(){
     if (e.which == 13) {
       e.preventDefault();
       var location = {};
-      locationString = $(".typeahead").val();
+      locationString = e.currentTarget.value;
 
       searchCity(locationString);
     }
@@ -68,8 +68,8 @@ $(document).ready(function(){
   }
 
   function splitAddress(address) {
-    var addressArray = address.split(', ');
-    console.log(addressArray);
+    var addressArray = address.replace(/['"]+/g, '').replace(/\s*,\s*/g, ',').split(',');
+
     var location = {
       city: addressArray[0],
       state: addressArray[1],
@@ -81,18 +81,7 @@ $(document).ready(function(){
   // this only kinda works?
   // the map doesn't seem to re-render for different cities
   function searchCity(address) {
-      sessionStorage.setItem('searchLocation', JSON.stringify(splitAddress(address)));
-    // getLocations(splitAddress(locationString), function (data) {
-    //   var isGeoInStorage = sessionStorage.getItem('geodata');
-    //   var searchMap = bittersMap(isGeoInStorage);
-    //   console.log(data);
-    //   data.locations.forEach(function (location) {
-    //     searchMap.mark({
-    //       lat: location.latitude,
-    //       lon: location.longitude
-    //     });
-    //   });
-    // });
+    sessionStorage.setItem('searchLocation', JSON.stringify(splitAddress(address)));
     $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
     window.location.href = '/locations';
   }
