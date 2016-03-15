@@ -77,8 +77,20 @@ $(document).ready(function(){
     return location;
   }
 
+  // this only kinda works?
+  // the map doesn't seem to re-render for different cities
   function searchCity(address) {
-    getLocations(splitAddress(locationString));
+    getLocations(splitAddress(locationString), function (data) {
+      var isGeoInStorage = sessionStorage.getItem('geodata');
+      var searchMap = bittersMap(isGeoInStorage);
+      console.log(data);
+      data.locations.forEach(function (location) {
+        searchMap.mark({
+          lat: location.latitude,
+          lon: location.longitude
+        });
+      });
+    });
     $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
   }
 
