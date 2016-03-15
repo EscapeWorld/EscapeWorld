@@ -41,11 +41,14 @@ $(document).ready(function(){
 
   $('.typeahead[type=text]').on('keydown', function(e) {
     if (e.which == 13) {
-      e.preventDefault();
-      var location = {};
-      locationString = e.currentTarget.value;
+      if (e.currentTarget.value !== "") {
+        e.preventDefault();
+        var location = {};
+        locationString = e.currentTarget.value;
+        console.log(locationString);
 
-      searchCity(locationString);
+        searchCity(locationString);
+      }
     }
   });
 
